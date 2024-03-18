@@ -11,7 +11,14 @@ export const api = createApi({
         body,
       }),
     }),
+    signIn: builder.mutation({
+      query: (body) => ({
+        url: '/auth/login',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useSignUpMutation } = api;
+export const { useSignUpMutation, useSignInMutation } = api;
