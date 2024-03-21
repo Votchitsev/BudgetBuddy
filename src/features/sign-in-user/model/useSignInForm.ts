@@ -1,6 +1,7 @@
 import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { useSignInMutation } from '@shared/api';
 import { setApiError } from '@shared/store';
+import { setUser } from '@shared/store';
 import { useEffect } from 'react';
 import type { SubmitHandler } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
@@ -19,6 +20,13 @@ export const useSignInForm = () => {
 
   useEffect(() => {
     if (isSuccess) {
+      dispatch(
+        setUser({
+          user: data.user,
+          token: data.token,
+        }),
+      );
+
       navigate('/');
     }
 

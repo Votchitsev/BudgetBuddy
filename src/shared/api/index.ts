@@ -18,7 +18,16 @@ export const api = createApi({
         body,
       }),
     }),
+    verifyUser: builder.query({
+      query: (token) => ({
+        url: '/auth/verify',
+        method: 'GET',
+        headers: {
+          Authorization: token,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useSignUpMutation, useSignInMutation } = api;
+export const { useSignUpMutation, useSignInMutation, useVerifyUserQuery } = api;
