@@ -4,6 +4,7 @@ import storage from 'redux-persist/lib/storage';
 
 import { api } from '../api';
 import apiErrorSlice from './apiErrorSlice';
+import dateReducer from './dateSlice';
 import userReducer from './userSlice';
 
 const userPersistConfig = {
@@ -14,6 +15,7 @@ const userPersistConfig = {
 const rootReducer = combineReducers({
   user: persistReducer(userPersistConfig, userReducer),
   apiError: apiErrorSlice,
+  date: dateReducer,
   [api.reducerPath]: api.reducer,
 });
 

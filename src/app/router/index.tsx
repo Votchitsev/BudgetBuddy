@@ -1,5 +1,5 @@
 import { Protected } from '@features/verify-user';
-import { SignInPage, SignUpPage, TestPage } from '@pages';
+import { MainPage, SignInPage, SignUpPage } from '@pages';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -16,7 +16,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <TestPage />,
+        element: <MainPage />,
       },
     ],
   },
