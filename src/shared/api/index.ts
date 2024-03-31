@@ -27,7 +27,16 @@ export const api = createApi({
         },
       }),
     }),
+    getPlannedBudget: builder.query({
+      query: ({ date, token }) => ({
+        url: `/plan/${date}`,
+        method: 'GET',
+        headers: {
+          Authorization: token,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useSignUpMutation, useSignInMutation, useVerifyUserQuery } = api;
+export const { useSignUpMutation, useSignInMutation, useVerifyUserQuery, useGetPlannedBudgetQuery } = api;
