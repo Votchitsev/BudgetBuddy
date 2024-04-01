@@ -4,7 +4,7 @@ export const useBudgetCard = () => {
   const navigate = useNavigate();
 
   const toBudgetList = () => {
-    navigate('/new-plan');
+    navigate('/plan');
   };
 
   return {

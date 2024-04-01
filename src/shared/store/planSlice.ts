@@ -12,7 +12,6 @@ const planSlice = createSlice({
   initialState,
   reducers: {
     setPlan: (state, action) => {
-      console.log(action.payload);
       const { date, total, plannedBudgetList } = action.payload;
       state.date = date;
       state.total = total;

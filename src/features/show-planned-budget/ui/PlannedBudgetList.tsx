@@ -1,22 +1,29 @@
-import styled from 'styled-components';
+
+import { IPlannedExpense } from '@entities/plannedExpense';
+import { RootState } from '@shared/index';
+import { Button } from '@shared/ui';
+import { useSelector } from 'react-redux';
+
+import { DetailedPlannedBudgetCard } from './DetailedPlannedBudgetCard';
 
 export const PlannedBudgetList = () => {
+  const { expenseList } = useSelector((state: RootState) => state.plannedExpense) as IPlannedExpense;
   return (
-    <Table>
-      <TableHead>
-        <tr>
-          <th>Статья</th>
-          <th>Сумма</th>
-        </tr>
-      </TableHead>
-    </Table>
+    expenseList.length ? (
+      expenseList.map((item) => (
+        <DetailedPlannedBudgetCard
+          key={item.id}
+          title={item.name}
+          amount={item.plannedAmount}
+          spent={item.expenseAmount}
+        />
+      ))
+    ) : (
+      <Button
+        onClick={() => {}}
+      >
+        Добавить планируемый расход
+      </Button>
+    )
   );
 };
-
-const Table = styled.table`
-  width: 100%;
-`;
-
-const TableHead = styled.thead`
-  border-bottom: 1px solid var(--secondary-color);
-`;

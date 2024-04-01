@@ -25,14 +25,13 @@ const Container = styled.div`
   padding: 1rem;
   border: 1px solid var(--secondary-color);
   border-radius: 4px;
-  background-color: var(--light-color);
   color: var(--dark-color);
   align-self: center;
 `;
 
 const Title = styled.span`
   position: absolute;
-  background-color: var(--light-color);
+  background-color: #FFFFFF;
   color: var(--dark-color);
   top: -1rem;
   left: 1rem;
