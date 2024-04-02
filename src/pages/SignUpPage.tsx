@@ -1,12 +1,11 @@
 import { SignUpForm } from '@features/sign-up-user';
-
-import { PageLayout } from './PageLayout';
+import { PageView } from '@shared/ui';
 
 export const SignUpPage = () => {
   return (
-    <PageLayout>
+    <PageView>
       <h1>Регистрация</h1>
       <SignUpForm />
-    </PageLayout>
+    </PageView>
   );
 };

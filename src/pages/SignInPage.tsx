@@ -1,18 +1,17 @@
 import { SignInForm } from '@features/sign-in-user';
+import { PageView } from '@shared/ui';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { PageLayout } from './PageLayout';
-
 export const SignInPage = () => {
   return (
-    <PageLayout>
+    <PageView>
       <h1>Вход</h1>
       <SignInForm />
       <LinkToSignUp>
         <Link to="/sign-up">Зарегистрироваться</Link>
       </LinkToSignUp>
-    </PageLayout>
+    </PageView>
   );
 };
 
