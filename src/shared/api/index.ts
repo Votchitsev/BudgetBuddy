@@ -45,6 +45,25 @@ export const api = createApi({
         },
       }),
     }),
+    getUpdatedPlannedExpense: builder.mutation({
+      query: ({ date, token }) => ({
+        url: `/plan-expense/${date}`,
+        method: 'GET',
+        headers: {
+          Authorization: token,
+        },
+      }),
+    }),
+    postPlannedExpense: builder.mutation({
+      query: ({ body, token }) => ({
+        url: '/plan-expense',
+        method: 'POST',
+        headers: {
+          Authorization: token,
+        },
+        body,
+      }),
+    }),
   }),
 });
 
@@ -54,4 +73,6 @@ export const {
   useVerifyUserQuery,
   useGetPlannedBudgetQuery,
   useGetPlannedExpenseQuery,
+  usePostPlannedExpenseMutation,
+  useGetUpdatedPlannedExpenseMutation,
 } = api;

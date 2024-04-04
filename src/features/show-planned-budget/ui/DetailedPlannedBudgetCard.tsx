@@ -1,14 +1,22 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface IProps {
   title: string;
   amount: number;
   spent: number;
+  id: number;
 }
 
-export const DetailedPlannedBudgetCard = ({ title, amount, spent }: IProps) => {
+export const DetailedPlannedBudgetCard = ({ title, amount, spent, id }: IProps) => {
+  const navigate = useNavigate();
+
+  const onClickHandler = () => {
+    navigate(`/plan-expense/change/${id}/${title}`);
+  };
+
   return (
-    <Card>
+    <Card onClick={onClickHandler}>
       <div>{ amount } ₽</div>
       <div>{ title }</div>
       <Spent>Потрачено { spent } ₽</Spent>
