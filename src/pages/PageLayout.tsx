@@ -1,5 +1,6 @@
 import { MonthInput } from '@features/change-month';
 import { useFetchData } from '@features/fetch-all-data';
+import { LogoutButton } from '@features/logout';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -7,9 +8,12 @@ export const PageLayout = () => {
   const { isLoading } = useFetchData();
   return (
     <Layout>
-      <MonthInputContainer>
-        <MonthInput />
-      </MonthInputContainer>
+      <TopContainer>
+        <MonthInputContainer>
+          <MonthInput />
+        </MonthInputContainer>
+        <LogoutButton />
+      </TopContainer>
       { isLoading ? (
         <span>Загрузка...</span>
       ) : (
@@ -26,9 +30,14 @@ const Layout = styled.main`
   gap: 1rem;
 `;
 
-const MonthInputContainer = styled.div`
+const TopContainer = styled.div`
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 1rem;
+`;
+
+const MonthInputContainer = styled.div`
+  display: flex;
+  max-width: 100px;
 `;

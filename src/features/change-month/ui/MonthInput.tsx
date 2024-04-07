@@ -18,6 +18,7 @@ export const MonthInput = () => {
       onChange={(date) => handleSetMonth(date?.getMonth() || 0, date?.getFullYear() || 0)}
       locale={'ru'}
       className='month-input'
+      withPortal
     />
   );
 };

@@ -17,7 +17,7 @@ export const DetailedPlannedBudgetCard = ({ title, amount, spent, id }: IProps) 
 
   return (
     <Card onClick={onClickHandler}>
-      <div>{ amount } ₽</div>
+      <Amount>{ amount } ₽</Amount>
       <div>{ title }</div>
       <Spent>Потрачено { spent } ₽</Spent>
     </Card>
@@ -38,4 +38,8 @@ const Card = styled.div`
 
 const Spent = styled.div`
   font-size: 10px;
+`;
+
+const Amount = styled.div`
+  font-weight: 700;
 `;

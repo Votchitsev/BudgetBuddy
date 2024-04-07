@@ -3,3 +3,4 @@ export * from './Button';
 export * from './ButtonBack';
 export * from './input';
 export * from './PageView';
+export * from './SimpleButton';
