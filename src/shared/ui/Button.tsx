@@ -9,4 +9,5 @@ export const Button = styled.button`
   outline: none;
   color: var(--light-color);
   min-width: 6rem;
+  min-height: 3rem;
 `;

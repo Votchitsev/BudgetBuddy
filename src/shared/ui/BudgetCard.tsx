@@ -18,7 +18,6 @@ export const BudgetCard = ({ title, children, onClickHandler }: IProps) => {
   );
 };
 
-
 const Container = styled.div`
   position: relative;
   width: 70%;

@@ -1,8 +1,9 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 
 export const api = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://45.140.146.226:5002/' }),
+  baseQuery: retry(fetchBaseQuery({ baseUrl: 'http://45.140.146.226:5002/' })),
+  tagTypes: ['PlannedBudget'],
   endpoints: (builder) => ({
     signUp: builder.mutation({
       query: (body) => ({
@@ -35,6 +36,7 @@ export const api = createApi({
           Authorization: token,
         },
       }),
+      providesTags: ['PlannedBudget'],
     }),
     getPlannedExpense: builder.query({
       query: ({ date, token }) => ({
@@ -44,15 +46,7 @@ export const api = createApi({
           Authorization: token,
         },
       }),
-    }),
-    getUpdatedPlannedExpense: builder.mutation({
-      query: ({ date, token }) => ({
-        url: `/plan-expense/${date}`,
-        method: 'GET',
-        headers: {
-          Authorization: token,
-        },
-      }),
+      providesTags: ['PlannedBudget'],
     }),
     postPlannedExpense: builder.mutation({
       query: ({ body, token }) => ({
@@ -63,6 +57,18 @@ export const api = createApi({
         },
         body,
       }),
+      invalidatesTags: ['PlannedBudget'],
+    }),
+    postPlannedBudget: builder.mutation({
+      query: ({ body, token }) => ({
+        url: '/plan',
+        method: 'POST',
+        headers: {
+          Authorization: token,
+        },
+        body,
+      }),
+      invalidatesTags: ['PlannedBudget'],
     }),
   }),
 });
@@ -74,5 +80,5 @@ export const {
   useGetPlannedBudgetQuery,
   useGetPlannedExpenseQuery,
   usePostPlannedExpenseMutation,
-  useGetUpdatedPlannedExpenseMutation,
+  usePostPlannedBudgetMutation,
 } = api;

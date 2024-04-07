@@ -11,8 +11,8 @@ export const PlannedBudgetList = () => {
   const navigate = useNavigate();
   const { expenseList } = useSelector((state: RootState) => state.plannedExpense) as IPlannedExpense;
 
-  const onClickHandler = () => {
-    navigate('/plan-expense/change/new');
+  const onNewPlannedExpense = () => {
+    navigate('/plan-budget/new');
   };
 
   return (
@@ -27,7 +27,7 @@ export const PlannedBudgetList = () => {
         />
       )) }
       <Button
-        onClick={onClickHandler}
+        onClick={onNewPlannedExpense}
       >
         Добавить планируемый расход
       </Button>
