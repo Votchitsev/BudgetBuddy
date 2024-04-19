@@ -20,7 +20,7 @@ export const BudgetCard = ({ title, children, onClickHandler }: IProps) => {
 
 const Container = styled.div`
   position: relative;
-  width: 70%;
+  width: 95%;
   padding: 1rem;
   border: 1px solid var(--secondary-color);
   border-radius: 4px;

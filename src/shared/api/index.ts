@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: retry(fetchBaseQuery({ baseUrl: 'http://45.140.146.226:5002/' })),
-  tagTypes: ['PlannedBudget'],
+  tagTypes: ['PlannedBudget', 'Income'],
   endpoints: (builder) => ({
     signUp: builder.mutation({
       query: (body) => ({
@@ -70,6 +70,38 @@ export const api = createApi({
       }),
       invalidatesTags: ['PlannedBudget'],
     }),
+    getIncome: builder.query({
+      query: ({ date, token }) => ({
+        url: `/income/${date}`,
+        method: 'GET',
+        headers: {
+          Authorization: token,
+        },
+      }),
+      providesTags: ['Income'],
+    }),
+    postIncome: builder.mutation({
+      query: ({ body, token }) => ({
+        url: '/income',
+        method: 'POST',
+        headers: {
+          Authorization: token,
+        },
+        body,
+      }),
+      invalidatesTags: ['Income'],
+    }),
+    putIncome: builder.mutation({
+      query: ({ body, token }) => ({
+        url: '/income',
+        method: 'PUT',
+        headers: {
+          Authorization: token,
+        },
+        body,
+      }),
+      invalidatesTags: ['Income'],
+    }),
   }),
 });
 
@@ -81,4 +113,7 @@ export const {
   useGetPlannedExpenseQuery,
   usePostPlannedExpenseMutation,
   usePostPlannedBudgetMutation,
+  useGetIncomeQuery,
+  usePostIncomeMutation,
+  usePutIncomeMutation,
 } = api;

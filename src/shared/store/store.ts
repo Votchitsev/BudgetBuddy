@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import { api } from '../api';
 import apiErrorSlice from './apiErrorSlice';
 import dateReducer from './dateSlice';
+import incomeReducer from './incomeSlice';
 import plannedExpenseReducer from './plannedExpenseSlice';
 import planReducer from './planSlice';
 import userReducer from './userSlice';
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   date: dateReducer,
   plan: planReducer,
   plannedExpense: plannedExpenseReducer,
+  income: incomeReducer,
   [api.reducerPath]: api.reducer,
 });
 

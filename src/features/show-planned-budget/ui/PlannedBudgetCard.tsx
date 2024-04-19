@@ -10,10 +10,10 @@ export const PlannedBudgetCard = () => {
 
   return (
     <BudgetCard
-      title="План"
+      title="Плановые расходы"
       onClickHandler={toBudgetList}
     >
-      <span>{ total }</span>
+      <span>{ total } ₽</span>
     </BudgetCard>
   );
 };

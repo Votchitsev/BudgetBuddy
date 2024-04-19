@@ -1,4 +1,6 @@
+export * from './ChangeIncomePage';
 export * from './ChangePlanExpensePage';
+export * from './IncomePage';
 export * from './MainPage';
 export * from './NewPlannedBudgetPage';
 export * from './PageLayout';

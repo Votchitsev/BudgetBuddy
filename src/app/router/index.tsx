@@ -1,12 +1,15 @@
 import { Protected } from '@features/verify-user';
 import {
+  ChangeIncomePage,
   ChangePlanExpensePage,
+  IncomePage,
   MainPage,
   NewPlannedBudgetFormPage,
   PageLayout,
   PlanListPage,
   SignInPage,
-  SignUpPage } from '@pages';
+  SignUpPage,
+} from '@pages';
 import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
@@ -40,6 +43,14 @@ export const router = createBrowserRouter([
           {
             path: '/plan-expense/change/:id/:name',
             element: <ChangePlanExpensePage />,
+          },
+          {
+            path: '/income',
+            element: <IncomePage />,
+          },
+          {
+            path: '/income/:id',
+            element: <ChangeIncomePage />,
           },
         ],
       },

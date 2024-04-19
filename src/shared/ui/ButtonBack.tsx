@@ -1,8 +1,27 @@
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const ButtonBack = () => {
+interface IProps {
+  href?: string;
+}
+
+export const ButtonBack = ({ href }: IProps = {}) => {
+  const navigate = useNavigate();
+
+  const onClickHandler = () => {
+    if (href) {
+      return navigate(href);
+    }
+
+    return navigate(-1);
+  };
+
   return (
-    <Button onClick={() => window.history.back()}> ← Назад</Button>
+    <Button
+      onClick={onClickHandler}
+    >
+      ← Назад
+    </Button>
   );
 };
 
