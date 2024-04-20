@@ -1,5 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { useModalContext } from '@entities/modal';
 import styled from 'styled-components';
+
+import { Modal } from './Modal';
 
 interface IProps {
   title: string;
@@ -9,10 +11,13 @@ interface IProps {
 }
 
 export const DetailedPlannedBudgetCard = ({ title, amount, spent, id }: IProps) => {
-  const navigate = useNavigate();
+  const { dispatch } = useModalContext();
 
   const onClickHandler = () => {
-    navigate(`/plan-expense/change/${id}/${title}`);
+    dispatch({
+      type: 'SET_MODAL',
+      payload: <Modal newExpenseHref={`/plan-expense/change/${id}/${title}`} />,
+    });
   };
 
   return (
