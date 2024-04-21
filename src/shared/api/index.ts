@@ -38,6 +38,17 @@ export const api = createApi({
       }),
       providesTags: ['PlannedBudget'],
     }),
+    putPlannedBudget: builder.mutation({
+      query: ({ body, token }) => ({
+        url: '/plan',
+        method: 'PUT',
+        headers: {
+          Authorization: token,
+        },
+        body,
+      }),
+      invalidatesTags: ['PlannedBudget'],
+    }),
     getPlannedExpense: builder.query({
       query: ({ date, token }) => ({
         url: `/plan-expense/${date}`,
@@ -116,4 +127,5 @@ export const {
   useGetIncomeQuery,
   usePostIncomeMutation,
   usePutIncomeMutation,
+  usePutPlannedBudgetMutation,
 } = api;

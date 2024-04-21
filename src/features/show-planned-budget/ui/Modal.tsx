@@ -1,14 +1,16 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface IProps {
   newExpenseHref: string;
+  changePlanHref: string;
 }
 
-export const Modal = ({ newExpenseHref }: IProps) => {
+export const Modal = ({ newExpenseHref, changePlanHref }: IProps) => {
   return (
     <Links>
-      <a href={newExpenseHref}>Добавить трату</a>
-      <a href='/'>Изменить плановую сумму</a>
+      <Link to={newExpenseHref}>Добавить трату</Link>
+      <Link to={changePlanHref}>Изменить плановую сумму</Link>
     </Links>
   );
 };

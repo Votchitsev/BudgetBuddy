@@ -1,3 +1,4 @@
+import { ModalProvider } from '@entities/modal';
 import { MonthInput } from '@features/change-month';
 import { useFetchData } from '@features/fetch-all-data';
 import { LogoutButton } from '@features/logout';
@@ -7,19 +8,21 @@ import styled from 'styled-components';
 export const PageLayout = () => {
   const { isLoading } = useFetchData();
   return (
-    <Layout>
-      <TopContainer>
-        <MonthInputContainer>
-          <MonthInput />
-        </MonthInputContainer>
-        <LogoutButton />
-      </TopContainer>
-      { isLoading ? (
-        <span>Загрузка...</span>
-      ) : (
-        <Outlet />
-      ) }
-    </Layout>
+    <ModalProvider>
+      <Layout>
+        <TopContainer>
+          <MonthInputContainer>
+            <MonthInput />
+          </MonthInputContainer>
+          <LogoutButton />
+        </TopContainer>
+        { isLoading ? (
+          <span>Загрузка...</span>
+        ) : (
+          <Outlet />
+        ) }
+      </Layout>
+    </ModalProvider>
   );
 };
 

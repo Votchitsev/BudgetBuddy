@@ -16,7 +16,12 @@ export const DetailedPlannedBudgetCard = ({ title, amount, spent, id }: IProps) 
   const onClickHandler = () => {
     dispatch({
       type: 'SET_MODAL',
-      payload: <Modal newExpenseHref={`/plan-expense/change/${id}/${title}`} />,
+      payload: (
+        <Modal
+          newExpenseHref={`/plan-expense/change/${id}/${title}`}
+          changePlanHref={`/plan/change/${id}`}
+        />
+      ),
     });
   };
 

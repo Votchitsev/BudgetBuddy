@@ -2,6 +2,7 @@ import { Protected } from '@features/verify-user';
 import {
   ChangeIncomePage,
   ChangePlanExpensePage,
+  ChangePlanPage,
   IncomePage,
   MainPage,
   NewPlannedBudgetFormPage,
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
           {
             path: '/plan-budget/new',
             element: <NewPlannedBudgetFormPage />,
+          },
+          {
+            path: '/plan/change/:id',
+            element: <ChangePlanPage />,
           },
           {
             path: '/plan-expense/change/:id/:name',
