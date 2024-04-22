@@ -2,6 +2,7 @@ import { ModalProvider } from '@entities/modal';
 import { MonthInput } from '@features/change-month';
 import { useFetchData } from '@features/fetch-all-data';
 import { LogoutButton } from '@features/logout';
+import { Loader } from '@shared/ui/Loader';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -17,7 +18,7 @@ export const PageLayout = () => {
           <LogoutButton />
         </TopContainer>
         { isLoading ? (
-          <span>Загрузка...</span>
+          <Loader />
         ) : (
           <Outlet />
         ) }

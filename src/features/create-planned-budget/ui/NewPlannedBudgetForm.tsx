@@ -1,4 +1,4 @@
-import { Button, Input } from '@shared/ui';
+import { Button, Input, Loader } from '@shared/ui';
 import styled from 'styled-components';
 
 import { useNewPlannedBudgetForm } from '../model/useNewPlannedBudgetForm';
@@ -12,7 +12,7 @@ export const NewPlannedBudgetForm = () => {
       <Input placeholder='Название' type='text' {...register('name', { required: true })} />
       <Input placeholder='Сумма' type='number' {...register('amount', { required: true })} />
       <Button type='submit'>
-        <span>{ isLoading ? 'Загрузка...' : 'Сохранить' }</span>
+        { isLoading ? <Loader forButton /> : <span>'Сохранить'</span> }
       </Button>
     </Form>
   );

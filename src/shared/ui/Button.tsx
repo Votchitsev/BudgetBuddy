@@ -10,4 +10,5 @@ export const Button = styled.button`
   color: var(--light-color);
   min-width: 6rem;
   min-height: 3rem;
+  position: relative;
 `;

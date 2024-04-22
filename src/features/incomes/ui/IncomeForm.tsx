@@ -1,5 +1,5 @@
 import type { IIncomeItem } from '@shared/types';
-import { Button, Input } from '@shared/ui';
+import { Button, Input, Loader } from '@shared/ui';
 import styled from 'styled-components';
 
 import { useIncomeForm } from '../model/useIncomeForm';
@@ -30,7 +30,7 @@ export const IncomeForm = ({ income }: IProps) => {
         type='number'
       />
       <Button type='submit'>
-        <span>{ isLoading ? 'Загрузка...' : 'Сохранить' }</span>
+        { isLoading ? <Loader forButton /> : 'Сохранить' }
       </Button>
     </Form>
   );

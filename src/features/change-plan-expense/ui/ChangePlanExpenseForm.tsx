@@ -1,4 +1,4 @@
-import { Button, Input } from '@shared/ui';
+import { Button, Input, Loader } from '@shared/ui';
 import styled from 'styled-components';
 
 import { useChangePlanExpenseForm } from '../model/useChangePlanExpense';
@@ -16,7 +16,7 @@ export const ChangePlanExpenseForm = () => {
         />
         <Button type='submit'>
           { isLoading ? (
-            <span>Загрузка...</span>
+            <Loader forButton />
           ) : (
             <span>Сохранить</span>
           )}

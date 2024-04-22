@@ -1,4 +1,4 @@
-import { Button, Input } from '@shared/ui';
+import { Button, Input, Loader } from '@shared/ui';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
@@ -21,7 +21,7 @@ export const SignInForm = () => {
       />
       <Button type='submit'>
         { isLoading ? (
-          <span>Загрузка...</span>
+          <Loader forButton />
         ) : (
           <span>Войти</span>
         )}

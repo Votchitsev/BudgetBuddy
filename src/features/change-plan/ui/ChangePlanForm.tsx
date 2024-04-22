@@ -1,5 +1,5 @@
 import type { IPlannedBudgetItem } from '@entities/plannedBudget';
-import { Button, Input } from '@shared/ui';
+import { Button, Input, Loader } from '@shared/ui';
 import styled from 'styled-components';
 
 import { useChangePlan } from '../model/useChangePlan';
@@ -27,7 +27,7 @@ export const ChangePlanForm = ({ planItem }: IProps) => {
       />
       <Button type='submit'>
         { isLoading ? (
-          <span>Загрузка...</span>
+          <Loader forButton />
         ) : (
           <span>Сохранить</span>
         )}
