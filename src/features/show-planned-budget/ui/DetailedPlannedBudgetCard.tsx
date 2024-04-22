@@ -20,6 +20,7 @@ export const DetailedPlannedBudgetCard = ({ title, amount, spent, id }: IProps) 
         <Modal
           newExpenseHref={`/plan-expense/change/${id}/${title}`}
           changePlanHref={`/plan/change/${id}`}
+          plannedBudgetId={id}
         />
       ),
     });

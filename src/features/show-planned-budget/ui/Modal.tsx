@@ -1,16 +1,21 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { useDeletePlannedExpense } from '../model/useDeletePlannedExpense';
+
 interface IProps {
   newExpenseHref: string;
   changePlanHref: string;
+  plannedBudgetId: number;
 }
 
-export const Modal = ({ newExpenseHref, changePlanHref }: IProps) => {
+export const Modal = ({ newExpenseHref, changePlanHref, plannedBudgetId }: IProps) => {
+  const { onDeletePlannedExpense } = useDeletePlannedExpense();
   return (
     <Links>
       <Link to={newExpenseHref}>Добавить трату</Link>
       <Link to={changePlanHref}>Изменить плановую сумму</Link>
+      <div onClick={() => onDeletePlannedExpense(plannedBudgetId)}>Сбросить траты</div>
     </Links>
   );
 };

@@ -1,8 +1,8 @@
-import { createApi, fetchBaseQuery, retry } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const api = createApi({
   reducerPath: 'api',
-  baseQuery: retry(fetchBaseQuery({ baseUrl: 'http://45.140.146.226:5002/' })),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://45.140.146.226:5002/' }),
   tagTypes: ['PlannedBudget', 'Income'],
   endpoints: (builder) => ({
     signUp: builder.mutation({
@@ -70,6 +70,16 @@ export const api = createApi({
       }),
       invalidatesTags: ['PlannedBudget'],
     }),
+    deletePlannedExpense: builder.mutation({
+      query: ({ id, token }) => ({
+        url: `/plan-expense/${id}`,
+        method: 'DELETE',
+        headers: {
+          Authorization: token,
+        },
+      }),
+      invalidatesTags: ['PlannedBudget'],
+    }),
     postPlannedBudget: builder.mutation({
       query: ({ body, token }) => ({
         url: '/plan',
@@ -128,4 +138,5 @@ export const {
   usePostIncomeMutation,
   usePutIncomeMutation,
   usePutPlannedBudgetMutation,
+  useDeletePlannedExpenseMutation,
 } = api;
