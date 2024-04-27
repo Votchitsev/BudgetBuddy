@@ -1,6 +1,11 @@
-import { useGetIncomeQuery, useGetPlannedBudgetQuery, useGetPlannedExpenseQuery } from '@shared/api';
+import {
+  useGetDailyExpenseQuery,
+  useGetIncomeQuery,
+  useGetPlannedBudgetQuery,
+  useGetPlannedExpenseQuery,
+} from '@shared/api';
 import { makeDateString } from '@shared/lib';
-import { RootState, setIncome, setPlan, setPlannedExpenseList } from '@shared/store';
+import { RootState, setDailyExpenses,setIncome, setPlan, setPlannedExpenseList } from '@shared/store';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,6 +13,7 @@ export const useFetchData = () => {
   const dispatch = useDispatch();
   const { date } = useSelector((state: RootState) => state.date);
   const { user } = useSelector((state: RootState) => state.user);
+  // const { dailyExpense } = useSelector((state: RootState) => state.dailyExpense);
 
   const {
     data: plannedBudgetData,
@@ -32,6 +38,15 @@ export const useFetchData = () => {
     isLoading: incomeIsLoading,
     isError: incomeError,
   } = useGetIncomeQuery({
+    date: makeDateString({ year: date.year, month: date.month }),
+    token: user?.token,
+  });
+
+  const {
+    data: dailyExpenseData,
+    isLoading: dailyExpenseIsLoading,
+    isError: dailyExpenseError,
+  } = useGetDailyExpenseQuery({
     date: makeDateString({ year: date.year, month: date.month }),
     token: user?.token,
   });
@@ -79,7 +94,21 @@ export const useFetchData = () => {
 
   }, [dispatch, incomeData, incomeIsLoading, incomeError]);
 
+  useEffect(() => {
+    if (dailyExpenseError) {
+      return;
+    }
+
+    if (!dailyExpenseData) {
+      return;
+    }
+
+    dispatch(
+      setDailyExpenses(dailyExpenseData),
+    );
+  },[dispatch, dailyExpenseData, dailyExpenseIsLoading, dailyExpenseError]);
+
   return {
-    isLoading: plannedBudgetIsLoading || plannedExpenseIsLoading,
+    isLoading: plannedBudgetIsLoading || plannedExpenseIsLoading || incomeIsLoading || dailyExpenseIsLoading,
   };
 };

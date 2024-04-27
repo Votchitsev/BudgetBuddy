@@ -1,8 +1,10 @@
 import { Protected } from '@features/verify-user';
 import {
+  ChangeDailyExpensePage,
   ChangeIncomePage,
   ChangePlanExpensePage,
   ChangePlanPage,
+  DailyExpensePage,
   IncomePage,
   MainPage,
   NewPlannedBudgetFormPage,
@@ -56,6 +58,14 @@ export const router = createBrowserRouter([
           {
             path: '/income/:id',
             element: <ChangeIncomePage />,
+          },
+          {
+            path: '/daily-expense',
+            element: <DailyExpensePage />,
+          },
+          {
+            path: '/daily-expense/:date',
+            element: <ChangeDailyExpensePage />,
           },
         ],
       },

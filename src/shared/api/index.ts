@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://45.140.146.226:5002/' }),
-  tagTypes: ['PlannedBudget', 'Income'],
+  tagTypes: ['PlannedBudget', 'Income', 'DailyExpense'],
   endpoints: (builder) => ({
     signUp: builder.mutation({
       query: (body) => ({
@@ -123,6 +123,37 @@ export const api = createApi({
       }),
       invalidatesTags: ['Income'],
     }),
+    getDailyExpense: builder.query({
+      query: ({ date, token }) => ({
+        url: `/daily/${date}`,
+        method: 'GET',
+        headers: {
+          Authorization: token,
+        },
+      }),
+      providesTags: ['DailyExpense'],
+    }),
+    postDailyExpense: builder.mutation({
+      query: ({ body, token }) => ({
+        url: '/daily',
+        method: 'POST',
+        headers: {
+          Authorization: token,
+        },
+        body,
+      }),
+      invalidatesTags: ['DailyExpense'],
+    }),
+    deleteDailyExpense: builder.mutation({
+      query: ({ date, token }) => ({
+        url: `/daily/${date}`,
+        method: 'DELETE',
+        headers: {
+          Authorization: token,
+        },
+      }),
+      invalidatesTags: ['DailyExpense'],
+    }),
   }),
 });
 
@@ -139,4 +170,7 @@ export const {
   usePutIncomeMutation,
   usePutPlannedBudgetMutation,
   useDeletePlannedExpenseMutation,
+  useGetDailyExpenseQuery,
+  usePostDailyExpenseMutation,
+  useDeleteDailyExpenseMutation,
 } = api;

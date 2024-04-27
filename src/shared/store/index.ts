@@ -1,5 +1,6 @@
 export * from './apiErrorSlice';
 export { clearApiError, setApiError } from './apiErrorSlice';
+export { setDailyExpenses } from './dailyExpenseSlice';
 export { setDate } from './dateSlice';
 export { setIncome } from './incomeSlice';
 export { setPlannedExpenseList } from './plannedExpenseSlice';
