@@ -4,7 +4,7 @@ import { ButtonBack } from '@shared/ui';
 export const NewPlannedBudgetFormPage = () => {
   return (
     <>
-      <ButtonBack />
+      <ButtonBack href="/plan" />
       <NewPlannedBudgetForm />
     </>
   );

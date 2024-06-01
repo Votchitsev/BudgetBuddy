@@ -6,7 +6,7 @@ export const ChangeDailyExpensePage = () => {
   const { date } = useParams();
   return (
     <>
-      <ButtonBack />
+      <ButtonBack href='/daily-expense' />
       <h1>{date}</h1>
       <DailyExpenseForm />
     </>

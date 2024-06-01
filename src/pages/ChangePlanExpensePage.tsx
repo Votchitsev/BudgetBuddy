@@ -8,7 +8,7 @@ export const ChangePlanExpensePage = () => {
 
   return (
     <>
-      <ButtonBack />
+      <ButtonBack href='/plan' />
       <Title>{name}</Title>
       <ChangePlanExpenseForm />
     </>
