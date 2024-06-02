@@ -16,7 +16,7 @@ export default defineConfig({
         short_name: 'Budget Buddy',
         theme_color: '#000000',
         icons: [],
-        background_color: '#000000',
+        background_color: 'black',
       },
     }),
   ],
