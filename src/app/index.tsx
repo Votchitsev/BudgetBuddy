@@ -1,6 +1,5 @@
 import './style/colors.css';
 import './style/global.css';
-import './style/datepicker.css';
 import 'normalize.css';
 
 import { ErrorModal } from '@entities/errorModal';

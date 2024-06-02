@@ -1,7 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 
-import { Rocket } from './Rocket';
-
 interface IProps {
   forButton?: boolean;
 }
