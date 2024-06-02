@@ -14,8 +14,9 @@ export default defineConfig({
       manifest: {
         name: 'Budget Buddy',
         short_name: 'Budget Buddy',
-        theme_color: '#ffffff',
+        theme_color: '#000000',
         icons: [],
+        background_color: '#000000',
       },
     }),
   ],
