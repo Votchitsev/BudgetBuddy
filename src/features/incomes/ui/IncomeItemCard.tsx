@@ -1,3 +1,4 @@
+import { delimit } from '@shared/lib';
 import type { IIncomeItem } from '@shared/types';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
@@ -12,7 +13,7 @@ export const IncomeItemCard = ({ income }: IProps) => {
   return (
     <IncomeItemView onClick={() => navigate(`/income/${income.id}`)}>
       <div>{ income.name }</div>
-      <Amount>{ income.amount } ₽</Amount>
+      <Amount>{ delimit(income.amount) } ₽</Amount>
     </IncomeItemView>
   );
 };
@@ -21,8 +22,7 @@ const IncomeItemView = styled.div`
   width: 100%;
   padding: 1rem;
   border: 1px solid var(--secondary-color);
-  border-radius: 6px;
-  color: var(--dark-color);
+  border-radius: 15px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;

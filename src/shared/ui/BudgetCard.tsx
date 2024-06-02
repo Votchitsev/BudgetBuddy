@@ -21,17 +21,16 @@ export const BudgetCard = ({ title, children, onClickHandler }: IProps) => {
 const Container = styled.div`
   position: relative;
   width: 95%;
-  padding: 1rem;
+  padding: 1.5rem;
   border: 1px solid var(--secondary-color);
-  border-radius: 4px;
-  color: var(--dark-color);
+  border-radius: 15px;
   align-self: center;
 `;
 
 const Title = styled.span`
   position: absolute;
-  background-color: #FFFFFF;
-  color: var(--dark-color);
+  background-color: var(--dark-color);
+  color: var(--secondary-color);
   top: -1rem;
   left: 1rem;
   padding: 0.5rem;

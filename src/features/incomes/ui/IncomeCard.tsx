@@ -1,3 +1,4 @@
+import { delimit } from '@shared/lib';
 import { RootState } from '@shared/store';
 import { BudgetCard } from '@shared/ui';
 import { useSelector } from 'react-redux';
@@ -12,7 +13,7 @@ export const IncomeCard = () => {
       title="Доходы"
       onClickHandler={() => navigate('/income')}
     >
-      <span>{ income.total } ₽</span>
+      <span>{ delimit(income.total) } ₽</span>
     </BudgetCard>
   );
 };

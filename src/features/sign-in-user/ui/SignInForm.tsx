@@ -17,6 +17,7 @@ export const SignInForm = () => {
       />
       <Input
         placeholder='Пароль'
+        type="password"
         { ...register('password', { required: true })}
       />
       <Button type='submit'>

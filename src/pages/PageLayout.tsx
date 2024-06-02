@@ -1,5 +1,5 @@
 import { ModalProvider } from '@entities/modal';
-import { MonthInput } from '@features/change-month';
+import { MonthSwitcher } from '@features/change-month';
 import { useFetchData } from '@features/fetch-all-data';
 import { LogoutButton } from '@features/logout';
 import { Loader } from '@shared/ui/Loader';
@@ -13,7 +13,7 @@ export const PageLayout = () => {
       <Layout>
         <TopContainer>
           <MonthInputContainer>
-            <MonthInput />
+            <MonthSwitcher />
           </MonthInputContainer>
           <LogoutButton />
         </TopContainer>

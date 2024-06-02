@@ -7,7 +7,7 @@ export const ChangeDailyExpensePage = () => {
   return (
     <>
       <ButtonBack href='/daily-expense' />
-      <h1>{date}</h1>
+      <h1>{ date && new Date(date).toLocaleDateString('ru') }</h1>
       <DailyExpenseForm />
     </>
   );

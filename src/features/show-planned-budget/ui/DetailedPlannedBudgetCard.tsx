@@ -39,8 +39,8 @@ const Card = styled.div`
   width: 100%;
   padding: 1rem;
   border: 1px solid var(--secondary-color);
-  border-radius: 6px;
-  color: var(--dark-color);
+  border-radius: 15px;
+  color: var(--light-color);
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;

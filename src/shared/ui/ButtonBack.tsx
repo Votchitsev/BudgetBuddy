@@ -29,4 +29,5 @@ const Button = styled.button`
   border: none;
   background: none;
   width: fit-content;
+  color: var(--primary-color);
 `;

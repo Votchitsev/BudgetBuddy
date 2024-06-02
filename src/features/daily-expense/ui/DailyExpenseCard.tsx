@@ -1,3 +1,4 @@
+import { delimit } from '@shared/lib';
 import { RootState } from '@shared/store';
 import { BudgetCard } from '@shared/ui';
 import { useSelector } from 'react-redux';
@@ -16,7 +17,7 @@ export const DailyExpenseCard = () => {
       title={'Ежедневный расход'}
       onClickHandler={onClickHandler}
     >
-      <span> Можно тратить { dailyExpense?.allowedExpense } ₽</span>
+      <span> Можно тратить { delimit(dailyExpense?.allowedExpense ?? 0) } ₽</span>
     </BudgetCard>
   );
 };

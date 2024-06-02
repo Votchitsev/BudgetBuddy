@@ -1,4 +1,5 @@
 import { useModalContext } from '@entities/modal';
+import { delimit } from '@shared/lib';
 import { RootState } from '@shared/store';
 import { useSelector } from 'react-redux';
 import styled from 'styled-components';
@@ -34,13 +35,13 @@ export const DailyExpenseList = () => {
           { dailyExpense?.expenseData.map((item) => (
             <TableRow key={item.date} onClick={() => onClickHandler(item.date)}>
               <Cell>{ item.date.split('-')[2] }</Cell>
-              <Cell>{ item.budget }</Cell>
-              <Cell>{ item.amount }</Cell>
-              <Cell>{ item.balance }</Cell>
+              <Cell>{ delimit(item.budget) }</Cell>
+              <Cell>{ delimit(item.amount) }</Cell>
+              <Cell>{ delimit(item.balance) }</Cell>
             </TableRow>
           ))}
           <TableRow>
-            <TotalCell>Итого: { dailyExpense?.outcomeBalance } ₽</TotalCell>
+            <TotalCell>Итого: { delimit(dailyExpense?.outcomeBalance ?? 0) } ₽</TotalCell>
           </TableRow>
         </TableBodyInner>
       </TableBody>
@@ -83,7 +84,7 @@ const Cell = styled.div`
   align-items: center;
   justify-content: center;
   /* padding: 1rem; */
-  color: var(--dark-color);
+  color: var(--light-color);
 `;
 
 const HeadCell = styled(Cell)`

@@ -1,5 +1,10 @@
+html {
+  font-size: 18px;
+}
+
 body {
-  color: var(--dark-color);
+  background-color: var(--dark-color);
+  color: var(--light-color);
 
   font-family: 'Roboto', sans-serif;
   font-weight: 400;
