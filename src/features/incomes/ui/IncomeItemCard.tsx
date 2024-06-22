@@ -11,7 +11,7 @@ export const IncomeItemCard = ({ income }: IProps) => {
   const navigate = useNavigate();
 
   return (
-    <IncomeItemView onClick={() => navigate(`/income/${income.id}`)}>
+    <IncomeItemView onClick={() => navigate(`/income/${income.id}`, { state: { from: '/income' } })}>
       <div>{ income.name }</div>
       <Amount>{ delimit(income.amount) } ₽</Amount>
     </IncomeItemView>

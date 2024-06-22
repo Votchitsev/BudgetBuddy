@@ -9,7 +9,7 @@ export const DailyExpenseCard = () => {
   const { dailyExpense } = useSelector((state: RootState) => state.dailyExpense);
 
   const onClickHandler = () => {
-    navigate('/daily-expense');
+    navigate('/daily-expense', { state: { from: '/' } });
   };
 
   return (

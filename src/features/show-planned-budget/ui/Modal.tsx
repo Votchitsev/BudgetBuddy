@@ -13,8 +13,8 @@ export const Modal = ({ newExpenseHref, changePlanHref, plannedBudgetId }: IProp
   const { onDeletePlannedExpense } = useDeletePlannedExpense();
   return (
     <Links>
-      <Link to={newExpenseHref}>Добавить трату</Link>
-      <Link to={changePlanHref}>Изменить плановую сумму</Link>
+      <Link to={newExpenseHref} state={{ from: '/plan' }}>Добавить трату</Link>
+      <Link to={changePlanHref} state={{ from: '/plan' }}>Изменить плановую сумму</Link>
       <div onClick={() => onDeletePlannedExpense(plannedBudgetId)}>Сбросить траты</div>
     </Links>
   );

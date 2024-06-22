@@ -8,7 +8,7 @@ export const LogoutButton = () => {
     <SimpleButton
       onClick={handleLogout}
     >
-      Выйти
+      Выйти из аккаунта
     </SimpleButton>
   );
 };

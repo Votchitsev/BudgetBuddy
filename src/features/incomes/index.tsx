@@ -1,2 +1,2 @@
-export * from './ui/IncomeCard';
-export * from './ui/IncomeForm';
+export { IncomeCard } from './ui/IncomeCard';
+export { IncomeForm } from './ui/IncomeForm';

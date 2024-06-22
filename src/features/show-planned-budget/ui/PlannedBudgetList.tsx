@@ -12,7 +12,7 @@ export const PlannedBudgetList = () => {
   const { expenseList } = useSelector((state: RootState) => state.plannedExpense) as IPlannedExpense;
 
   const onNewPlannedExpense = () => {
-    navigate('/plan-budget/new');
+    navigate('/plan-budget/new', { state: { from: '/plan' } });
   };
 
   return (

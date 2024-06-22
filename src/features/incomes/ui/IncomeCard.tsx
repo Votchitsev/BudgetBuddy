@@ -11,7 +11,7 @@ export const IncomeCard = () => {
   return (
     <BudgetCard
       title="Доходы"
-      onClickHandler={() => navigate('/income')}
+      onClickHandler={() => navigate('/income', { state: { from: '/' } })}
     >
       <span>{ delimit(income.total) } ₽</span>
     </BudgetCard>

@@ -1,23 +1,23 @@
+import { Chevron } from '@shared/ui';
 import styled from 'styled-components';
 
 import { useMonth } from '../model/useMonth';
-import { Chevron } from './Chevron';
 
 export const MonthSwitcher = () => {
   const { handleSetMonth, current, hasNextMonth } = useMonth();
 
   return (
     <MonthSwitcherView>
-      <Chevron width={25} height={25} onClick={() => handleSetMonth('prev')} />
+      <Chevron width={30} height={30} onClick={() => handleSetMonth('prev')} />
       <Current>
-        <p>{ current.month.name }</p>
-        <p>{ current.year }</p>
+        <div>{ current.month.name }</div>
+        <div>{ current.year }</div>
       </Current>
       { hasNextMonth
         &&
           <Chevron
-            width={25}
-            height={25}
+            width={30}
+            height={30}
             style={{ rotate: '180deg' }}
             onClick={() => handleSetMonth('next')}
           /> }

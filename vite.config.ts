@@ -27,6 +27,7 @@ export default defineConfig({
       '@pages': '/src/pages/',
       '@features': '/src/features/',
       '@entities': '/src/entities/',
+      '@widgets': '/src/widgets/',
     },
   },
 });

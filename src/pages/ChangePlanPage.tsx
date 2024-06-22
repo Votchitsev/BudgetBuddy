@@ -1,7 +1,6 @@
 import { IPlannedBudgetItem } from '@entities/plannedBudget';
 import { ChangePlanForm } from '@features/change-plan';
 import { RootState } from '@shared/store';
-import { ButtonBack } from '@shared/ui';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -15,7 +14,6 @@ export const ChangePlanPage = () => {
 
   return (
     <>
-      <ButtonBack href='/plan'/>
       <ChangePlanForm planItem={planById!} />
     </>
   );

@@ -13,7 +13,7 @@ export const Modal = ({ newExpenseHref, date }: IProps) => {
   const { onDeleteDailyExpense } = useDeleteDailyExpense();
   return (
     <Links>
-      <Link to={newExpenseHref}>Добавить трату</Link>
+      <Link to={newExpenseHref} state={{ from: '/daily-expense' }}>Добавить трату</Link>
       <div onClick={() => onDeleteDailyExpense(date)}>Сбросить траты</div>
     </Links>
   );

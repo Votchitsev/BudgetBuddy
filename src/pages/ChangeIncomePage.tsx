@@ -1,6 +1,5 @@
-import {  IncomeForm } from '@features/incomes';
+import { IncomeForm } from '@features/incomes';
 import { RootState } from '@shared/store';
-import { ButtonBack } from '@shared/ui';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -16,7 +15,6 @@ export const ChangeIncomePage = () => {
 
   return (
     <>
-      <ButtonBack href='/income' />
       <Title>{ incomeById && incomeById.name || 'Новый доход' }</Title>
       <IncomeForm income={incomeById} />
     </>

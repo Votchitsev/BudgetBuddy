@@ -1,5 +1,4 @@
 import { ChangePlanExpenseForm } from '@features/change-plan-expense';
-import { ButtonBack } from '@shared/ui';
 import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -8,7 +7,6 @@ export const ChangePlanExpensePage = () => {
 
   return (
     <>
-      <ButtonBack href='/plan' />
       <Title>{name}</Title>
       <ChangePlanExpenseForm />
     </>
