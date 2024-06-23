@@ -53,6 +53,7 @@ const TableView = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  max-height: calc(100dvh - 6rem);
 `;
 
 const TableHead = styled.div`
