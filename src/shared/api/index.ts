@@ -47,7 +47,7 @@ export const api = createApi({
         },
         body,
       }),
-      invalidatesTags: ['PlannedBudget'],
+      invalidatesTags: ['PlannedBudget', 'DailyExpense'],
     }),
     getPlannedExpense: builder.query({
       query: ({ date, token }) => ({
@@ -131,7 +131,7 @@ export const api = createApi({
           Authorization: token,
         },
       }),
-      providesTags: ['DailyExpense'],
+      providesTags: ['DailyExpense', 'PlannedBudget'],
     }),
     postDailyExpense: builder.mutation({
       query: ({ body, token }) => ({
