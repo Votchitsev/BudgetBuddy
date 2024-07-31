@@ -12,7 +12,7 @@ export const NewPlannedBudgetForm = () => {
       <Input placeholder='Название' type='text' {...register('name', { required: true })} />
       <Input placeholder='Сумма' type='number' {...register('amount', { required: true })} />
       <Button type='submit'>
-        { isLoading ? <Loader forButton /> : <span>'Сохранить'</span> }
+        { isLoading ? <Loader forButton /> : <span>Сохранить</span> }
       </Button>
     </Form>
   );

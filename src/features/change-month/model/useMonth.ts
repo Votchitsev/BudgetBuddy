@@ -39,7 +39,7 @@ export const useMonth = () => {
     const currentMonth = new Date().getMonth();
     const currentYear = new Date().getFullYear();
 
-    if (currentMonth !== date.month && date.year === currentYear || date.year < currentYear) {
+    if (currentMonth + 1 !== date.month && date.year === currentYear || date.year < currentYear) {
       setHasNextMonth(true);
       return;
     }
