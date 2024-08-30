@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 interface IProps {
-  closeSheet: () => void;
+  closeSheet?: () => void;
 }
 
 export const SavingsForm = ({ closeSheet }: IProps) => {
@@ -16,7 +16,10 @@ export const SavingsForm = ({ closeSheet }: IProps) => {
     e.preventDefault();
     e.stopPropagation();
     await handleSubmit();
-    closeSheet();
+
+    if (closeSheet) {
+      closeSheet();
+    }
   };
 
   return (
