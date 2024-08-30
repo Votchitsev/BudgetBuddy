@@ -19,20 +19,22 @@ export const BudgetCard = ({ title, children, onClickHandler }: IProps) => {
 };
 
 const Container = styled.div`
-  position: relative;
   width: 95%;
   padding: 1.5rem;
-  border: 1px solid var(--secondary-color);
+  padding-top: .7rem;
   border-radius: 15px;
   align-self: center;
+  background-color: var(--secondary);
+  box-shadow: 0 4px 10px -1px #181616;
+  display: flex;
+  flex-direction: column;
+  gap: .7rem;
 `;
 
 const Title = styled.span`
-  position: absolute;
-  background-color: var(--dark-color);
+  background-color: var(--secondary);
   color: var(--secondary-color);
-  top: -1rem;
-  left: 1rem;
-  padding: 0.5rem;
   font-size: .8rem;
+  color: var(--third);
+  font-weight: 700;
 `;

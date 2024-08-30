@@ -25,7 +25,7 @@ const BurgerButton = styled.button`
 const Line = styled.div`
   width: 2rem;
   height: 0.25rem;
-  background: var(--light-color);
+  background: var(--third);
   transition: all 0.3s linear;
   position: relative;
   transform-origin: 1px;

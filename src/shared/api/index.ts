@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const api = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://45.140.146.226:5002/' }),
-  tagTypes: ['PlannedBudget', 'Income', 'DailyExpense'],
+  tagTypes: ['PlannedBudget', 'Income', 'DailyExpense', 'Savings'],
   endpoints: (builder) => ({
     signUp: builder.mutation({
       query: (body) => ({
@@ -131,7 +131,7 @@ export const api = createApi({
           Authorization: token,
         },
       }),
-      providesTags: ['DailyExpense', 'PlannedBudget'],
+      providesTags: ['DailyExpense', 'PlannedBudget', 'Income', 'Savings'],
     }),
     postDailyExpense: builder.mutation({
       query: ({ body, token }) => ({
@@ -154,6 +154,37 @@ export const api = createApi({
       }),
       invalidatesTags: ['DailyExpense'],
     }),
+    putSavings: builder.mutation({
+      query: ({ body, token }) => ({
+        url: '/savings',
+        method: 'PUT',
+        headers: {
+          Authorization: token,
+        },
+        body,
+      }),
+      invalidatesTags: ['Savings'],
+    }),
+    deleteSavings: builder.mutation({
+      query: ({ token, date }) => ({
+        url: `/savings/${date}`,
+        method: 'DELETE',
+        headers: {
+          Authorization: token,
+        },
+      }),
+      invalidatesTags: ['Savings'],
+    }),
+    getSavings: builder.query({
+      query: ({ token, date }) => ({
+        url: `/savings/${date}`,
+        method: 'GET',
+        headers: {
+          Authorization: token,
+        },
+      }),
+      providesTags: ['Savings'],
+    }),
   }),
 });
 
@@ -173,4 +204,7 @@ export const {
   useGetDailyExpenseQuery,
   usePostDailyExpenseMutation,
   useDeleteDailyExpenseMutation,
+  useGetSavingsQuery,
+  usePutSavingsMutation,
+  useDeleteSavingsMutation,
 } = api;

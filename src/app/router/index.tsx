@@ -10,6 +10,7 @@ import {
   NewPlannedBudgetFormPage,
   PageLayout,
   PlanListPage,
+  SavingsPage,
   SignInPage,
   SignUpPage,
 } from '@pages';
@@ -66,6 +67,10 @@ export const router = createBrowserRouter([
           {
             path: '/daily-expense/:date',
             element: <ChangeDailyExpensePage />,
+          },
+          {
+            path: '/savings',
+            element: <SavingsPage />,
           },
         ],
       },

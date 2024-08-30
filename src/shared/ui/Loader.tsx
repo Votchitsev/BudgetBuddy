@@ -8,7 +8,7 @@ export const Loader = ({ forButton = false }: IProps = {}) => {
   if (forButton) {
     return (
       <LoaderBody>
-        <LoaderItem />
+        <LoaderItem $forButton />
       </LoaderBody>
     );
   }
@@ -16,7 +16,7 @@ export const Loader = ({ forButton = false }: IProps = {}) => {
   return (
     <LoaderView>
       <LoaderBody>
-        <LoaderItem />
+        <LoaderItem $forButton={forButton} />
       </LoaderBody>
     </LoaderView>
   );
@@ -44,23 +44,22 @@ const LoaderBody = styled.div`
   bottom: 0;
 `;
 
-const loading = keyframes`
+
+const spin = keyframes`
   0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(2);
+    transform: rotate(0deg);
   }
   100% {
-    transform: scale(0);
+    transform: rotate(360deg);
   }
 `;
 
-const LoaderItem = styled.div`
-  width: 1rem;
-  height: 1rem;
+const LoaderItem = styled.div<{ $forButton: boolean }>`
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  background-color: var(--secondary-color);
-  margin: 0.5rem;
-  animation: ${loading} 1s infinite ease-in-out;
+  border-left-color: ${ ({ $forButton })  => $forButton ? 'var(--main)' : 'var(--third)'};
+
+  animation: ${spin} 1s ease infinite;
 `;

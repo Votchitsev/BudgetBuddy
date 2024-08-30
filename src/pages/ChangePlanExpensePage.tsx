@@ -18,5 +18,5 @@ const Title = styled.p`
   margin-bottom: 1rem;
   margin-top: 0;
   font-size: 1rem;
-  color: var(--dark-color);
+  color: var(--third);
 `;

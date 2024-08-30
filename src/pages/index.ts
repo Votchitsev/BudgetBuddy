@@ -8,5 +8,6 @@ export * from './MainPage';
 export * from './NewPlannedBudgetPage';
 export * from './PageLayout';
 export * from './PlanListPage';
+export * from './SavingsPage';
 export * from './SignInPage';
 export * from './SignUpPage';

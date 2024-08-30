@@ -30,6 +30,8 @@ const MonthSwitcherView = styled.div`
   align-items: center;
   gap: 1rem;
   font-size: 1.4rem;
+  color: var(--third);
+  font-weight: 700;
 `;
 
 const Current = styled.div`

@@ -9,6 +9,7 @@ import dateReducer from './dateSlice';
 import incomeReducer from './incomeSlice';
 import plannedExpenseReducer from './plannedExpenseSlice';
 import planReducer from './planSlice';
+import savingsReducer from './savingsReducer';
 import userReducer from './userSlice';
 
 const userPersistConfig = {
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   plannedExpense: plannedExpenseReducer,
   income: incomeReducer,
   dailyExpense: dailyExpenseReducer,
+  savings: savingsReducer,
   [api.reducerPath]: api.reducer,
 });
 

@@ -22,7 +22,7 @@ const MenuView = styled.div<{ $show: boolean }>`
   height: ${props => props.$show ? 'fit-content' : 0 };
   min-height: ${props => props.$show ? 'fit-content' : 0 };
   opacity: ${props => props.$show ? 1 : 0 };
-  background-color: var(--dark-color);
+  background-color: var(--main);
   z-index: 20;
   top: calc(3rem + 18px);
   box-shadow: 0 4px 10px -1px #181616;

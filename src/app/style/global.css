@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  background-color: var(--dark-color);
+  background-color: var(--main);
   color: var(--light-color);
 
   font-family: 'Roboto', sans-serif;
