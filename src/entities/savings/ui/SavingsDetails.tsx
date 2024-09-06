@@ -17,15 +17,15 @@ export const SavingsDetails: FC<IProps> = () => {
       </SavingsDetailsItem>
       <SavingsDetailsItem>
         <span>Будет накоплено через месяц: </span>
-        <span>{ savingsPercent.amount } ₽</span>
+        <span>{ Math.round(savingsPercent.amount) } ₽</span>
       </SavingsDetailsItem>
       <SavingsDetailsItem>
         <span>Будет накоплено через 3 месяца: </span>
-        <span>{ savingsPercent.amount * 3 } ₽</span>
+        <span>{ Math.round(savingsPercent.amount * 3) } ₽</span>
       </SavingsDetailsItem>
       <SavingsDetailsItem>
         <span>Будет накоплено через год: </span>
-        <span>{ savingsPercent.amount * 12 } ₽</span>
+        <span>{ Math.round(savingsPercent.amount * 12) } ₽</span>
       </SavingsDetailsItem>
       <SavingsDetailsItem>
         <span>Можно тратить в день: </span>
