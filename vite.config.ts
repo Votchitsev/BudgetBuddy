@@ -20,6 +20,7 @@ export default defineConfig({
       },
     }),
   ],
+  base: '/budget-buddy',
   resolve: {
     alias: {
       '@app': '/src/app/',

@@ -76,4 +76,6 @@ export const router = createBrowserRouter([
       },
     ],
   },
-]);
+],{
+  basename: '/budget-buddy',
+});
