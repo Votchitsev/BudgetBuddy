@@ -1,0 +1,44 @@
+name: Git Hub Actions Demo
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: pull from repo
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd BudgetBuddy/
+            git checkout dev
+            git pull origin dev
+      - name: build
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd BudgetBuddy/
+            ls -la
+            source ~/.bashrc
+            export PATH="$HOME/.bun/bin:$PATH"
+            bun --version
+            bun install
+            bun run build
+      - name: move build files
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            rm -rf /var/www/BudgetBuddy/*
+            mv BudgetBuddy/dist/* /var/www/BudgetBuddy
+            sudo systemctl restart nginx
