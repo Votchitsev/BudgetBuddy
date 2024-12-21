@@ -41,4 +41,4 @@ jobs:
           script: |
             rm -rf /var/www/BudgetBuddy/*
             mv BudgetBuddy/dist/* /var/www/BudgetBuddy
-            sudo systemctl restart nginx
+            systemctl restart nginx
