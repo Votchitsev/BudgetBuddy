@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const api = createApi({
   reducerPath: 'api',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://45.140.146.226:5002/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https//votchitsev.fun/api/budget-buddy/' }),
   tagTypes: ['PlannedBudget', 'Income', 'DailyExpense', 'Savings'],
   endpoints: (builder) => ({
     signUp: builder.mutation({
