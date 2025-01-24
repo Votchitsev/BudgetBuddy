@@ -1,16 +1,15 @@
-import { RootState } from '@shared/store';
-import { useSelector } from 'react-redux';
+import { Column } from 'primereact/column';
+import { DataTable } from 'primereact/datatable';
 
-import { IncomeItemCard } from './IncomeItemCard';
+import useIncomeTable from '../model/useIncomesTable';
 
 export const IncomeList = () => {
-  const { income } = useSelector((state: RootState) => state.income);
+  const { income, handleRowClick } = useIncomeTable();
 
   return (
-    <>
-      { income.incomeList.map((item) => (
-        <IncomeItemCard key={item.id} income={item} />
-      ))}
-    </>
+    <DataTable value={income.incomeList} onRowClick={handleRowClick} tableStyle={{ cursor: 'pointer' }}>
+      <Column field="name" header="Доход" />
+      <Column field="amount" header="Сумма" align="right" dataType='numeric' />
+    </DataTable>
   );
 };

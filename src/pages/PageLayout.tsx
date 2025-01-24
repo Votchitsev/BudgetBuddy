@@ -26,4 +26,6 @@ const Layout = styled.main`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  max-width: 767px;
+  margin: 0 auto;
 `;

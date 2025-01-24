@@ -1,8 +1,12 @@
+export { default as AuthPageLayout } from './AuthPageLayout';
+export { default as AuthPanel } from './AuthPanel';
+export { default as Back } from './Back';
 export * from './BottomSheet';
 export * from './BudgetCard';
-export * from './Button';
+export { default as Button } from './Button';
 export * from './Chevron';
 export * from './input';
+export { default as InputText } from './InputText';
 export * from './Loader';
 export * from './PageView';
 export * from './SimpleButton';

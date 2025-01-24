@@ -1,3 +1,4 @@
+import { Card } from 'primereact/card';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -9,32 +10,32 @@ interface IProps {
 
 export const BudgetCard = ({ title, children, onClickHandler }: IProps) => {
   return (
-    <Container
+    <StyledCard
+      title={title}
       onClick={onClickHandler}
+      pt={{
+        title: {
+          style: cardTitleAdStyle,
+        },
+      }}
     >
-      <Title>{ title }</Title>
-      { children }
-    </Container>
+      <CardContent>
+        { children }
+      </CardContent>
+    </StyledCard>
   );
 };
 
-const Container = styled.div`
-  width: 95%;
-  padding: 1.5rem;
-  padding-top: .7rem;
-  border-radius: 15px;
-  align-self: center;
-  background-color: var(--secondary);
-  box-shadow: 0 4px 10px -1px #181616;
-  display: flex;
-  flex-direction: column;
-  gap: .7rem;
-`;
-
-const Title = styled.span`
-  background-color: var(--secondary);
-  color: var(--secondary-color);
-  font-size: .8rem;
-  color: var(--third);
+const CardContent = styled.p`
+  font-size: 1rem;
   font-weight: 700;
 `;
+
+const StyledCard = styled(Card)`
+  font-size: 1rem;
+  cursor: pointer;
+`;
+
+const cardTitleAdStyle = {
+  fontSize: '1rem',
+};

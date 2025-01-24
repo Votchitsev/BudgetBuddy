@@ -1,4 +1,5 @@
-import { Button, Input, Loader } from '@shared/ui';
+import { InputText } from '@shared/ui';
+import { Button } from 'primereact/button';
 import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
@@ -11,21 +12,22 @@ export const SignInForm = () => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Input
+      <InputText
         placeholder='Имя пользователя'
         { ...register('username', { required: true })}
       />
-      <Input
+      <InputText
         placeholder='Пароль'
         type="password"
         { ...register('password', { required: true })}
       />
-      <Button type='submit'>
-        { isLoading ? (
-          <Loader forButton />
-        ) : (
-          <span>Войти</span>
-        )}
+      <Button
+        type='submit'
+        style={{ alignSelf: 'center' }}
+        disabled={isLoading}
+        loading={isLoading}
+      >
+        Войти
       </Button>
     </Form>
   );

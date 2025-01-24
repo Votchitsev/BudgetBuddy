@@ -1,11 +1,17 @@
 import { SignUpForm } from '@features/sign-up-user';
-import { PageView } from '@shared/ui';
+import { AuthPageLayout, AuthPanel, Back, PageView } from '@shared/ui';
+import { useNavigate } from 'react-router-dom';
 
 export const SignUpPage = () => {
+  const navigate = useNavigate();
   return (
     <PageView>
-      <h1>Регистрация</h1>
-      <SignUpForm />
+      <AuthPageLayout>
+        <Back label='Авторизация' handleClick={() => navigate('/sign-in')} />
+        <AuthPanel header="Регистрация">
+          <SignUpForm />
+        </AuthPanel>
+      </AuthPageLayout>
     </PageView>
   );
 };
